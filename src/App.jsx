@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Code, Database, TrendingUp, Users } from 'lucide-react'
+import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Code, Database, TrendingUp, Users, Brain, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './App.css'
 
@@ -36,69 +36,75 @@ function App() {
 
   const projects = [
     {
-      title: "Sales Pro Agent",
-      description: "An intelligent sales automation system built with n8n, featuring advanced data scraping and lead generation capabilities.",
-      tech: ["n8n", "Octoparse", "API Integration", "Automation"],
-      status: "In Development",
-      link: "#"
-    },
-    {
-      title: "Data Pipeline Optimizer",
-      description: "A comprehensive solution for optimizing data workflows and improving sales team efficiency through automated insights.",
-      tech: ["Python", "Data Analysis", "Workflow Automation"],
-      status: "Completed",
-      link: "#"
-    },
-    {
-      title: "Portfolio Analytics Dashboard",
-      description: "A dynamic dashboard showcasing professional metrics and project outcomes with real-time data visualization.",
-      tech: ["React", "Chart.js", "API Integration"],
+      title: "Collaba ML",
+      description: "AI/ML marketplace connecting creators and brands. Scaled from concept to $15M in investor interest with 300+ creators and 40+ brands in 3 months.",
+      tech: ["GCP Vertex AI", "Python", "ML Pipelines", "React"],
       status: "Live",
-      link: "#"
+      link: "https://collabaml.ai",
+      linkedinLink: "https://www.linkedin.com/company/collaba-ml/?viewAsMember=true",
+      logo: "/images/collaba-ml-logo.png"
+    },
+    {
+      title: "Financial Forecasting System",
+      description: "ML system achieving 25% accuracy improvement in construction industry financial predictions using advanced forecasting algorithms.",
+      tech: ["Python", "TensorFlow", "Financial Modeling", "Data Analysis"],
+      status: "Completed",
+      link: "https://github.com/perm-moore",
+      image: "/images/financial-forecasting.jpg"
+    },
+    {
+      title: "ML Automation Pipeline",
+      description: "Reduced decision time by 92% across finance and operations through agent-based infrastructure with predictive ML and automated reporting.",
+      tech: ["AWS Bedrock", "ML Agents", "Automation", "ERP Integration"],
+      status: "In Production",
+      image: "/images/ml-automation-pipeline.png"
     }
   ]
 
   const skills = [
-    { name: "n8n Automation", icon: Code },
-    { name: "Data Scraping", icon: Database },
-    { name: "Sales Strategy", icon: TrendingUp },
+    { name: "ML/AI Engineering", icon: Brain },
+    { name: "Product Strategy", icon: TrendingUp },
+    { name: "Cloud Architecture", icon: Code },
     { name: "Team Leadership", icon: Users }
   ]
 
   const mediumArticles = [
     {
-      title: "Building the Future of Sales Automation",
-      excerpt: "How I'm revolutionizing sales processes through intelligent automation and data-driven insights.",
-      date: "Oct 2025",
+      title: "n8n Meetup in LA Photos | September 2025",
+      excerpt: "TL;DR: n8n held a meetup in Venice Beach and did a live demo. The whole event was very informative, with around 500+ guests.",
+      date: "Sep 2025",
+      readTime: "3 min read",
+      link: "https://medium.com/@permmoore186",
+      image: "/images/n8n-meetup.jpeg"
+    },
+    {
+      title: "AWS Summit 2025 | Event Photo Album & Experience",
+      excerpt: "September 17th, 2025 | Los Angeles Convention Center DT-LA. Comprehensive coverage of the latest AWS innovations and networking opportunities.",
+      date: "Sep 2025",
       readTime: "5 min read",
-      link: "https://medium.com/@permmoore"
+      link: "https://medium.com/@permmoore186",
+      image: "/images/aws-summit.jpg"
     },
     {
-      title: "From Military Discipline to Tech Excellence",
-      excerpt: "Applying White House standards and military-grade discipline to create exceptional tech solutions.",
-      date: "Sep 2025",
-      readTime: "7 min read",
-      link: "https://medium.com/@permmoore"
-    },
-    {
-      title: "The Art of Professional Networking",
-      excerpt: "Strategic approaches to building meaningful professional relationships in the tech industry.",
-      date: "Sep 2025",
+      title: "Google Irvine Office Visit as a Former Googler",
+      excerpt: "Lunch with the team and reflections on my time at Google, working on Trust & Safety and YouTube operations.",
+      date: "Aug 2025",
       readTime: "4 min read",
-      link: "https://medium.com/@permmoore"
+      link: "https://medium.com/@permmoore186",
+      image: "/images/google-office.jpg"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-stone-50 to-amber-50">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold text-amber-900"
             >
               PERM
             </motion.div>
@@ -107,20 +113,44 @@ function App() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    activeSection === item.toLowerCase() ? 'text-blue-600' : 'text-slate-600'
+                  className={`text-sm font-medium transition-colors hover:text-amber-700 ${
+                    activeSection === item.toLowerCase() ? 'text-amber-700' : 'text-stone-600'
                   }`}
                 >
                   {item}
                 </button>
               ))}
             </div>
-            <div className="flex items-center space-x-4">
-              <a href="https://github.com/permmoore" target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5 text-slate-600 hover:text-blue-600 transition-colors" />
+            <div className="flex items-center gap-3">
+              <a href="mailto:perm@collabaml.ai" 
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <Mail className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/permmoore" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-5 h-5 text-slate-600 hover:text-blue-600 transition-colors" />
+              <a href="https://github.com/perm-moore" target="_blank" rel="noopener noreferrer" 
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/perm/" target="_blank" rel="noopener noreferrer"
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://medium.com/@permmoore186" target="_blank" rel="noopener noreferrer"
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                </svg>
+              </a>
+              <a href="https://x.com/pm17208" target="_blank" rel="noopener noreferrer"
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://calendly.com/perm-collabaml" target="_blank" rel="noopener noreferrer"
+                 className="text-stone-600 hover:text-amber-700 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -129,9 +159,9 @@ function App() {
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-100/30 to-stone-100/30"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-stone-300/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <motion.div
@@ -139,29 +169,28 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                PERM MOORE
-              </span>
+            <h1 className="text-6xl md:text-8xl font-light mb-6 text-stone-800">
+              PERM MOORE
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-700 mb-8">
-              SALES PRO AGENT BUILDER
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Building the future of sales automation through intelligent data-driven solutions. 
-              I combine military-grade discipline with cutting-edge technology to create exceptional results.
+          <h2 className="text-2xl md:text-3xl font-light text-amber-800 mb-8 tracking-wide text-center">
+            <div>AI/ML AUTOMATION | PRODUCT INFRASTRUCTURE</div>
+            <div>FOUNDER & CEO, COLLABA ML (2025 - PRESENT)</div>
+          </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+              Building the future of AI/ML automation for the creator economy. Former Google/YouTube executive 
+              with expertise in machine learning, product strategy, and scaling innovative platforms.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => scrollToSection('work')}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg"
+                className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-3 text-lg font-light border-0"
               >
                 View My Work <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => scrollToSection('contact')}
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg"
+                className="border-2 border-amber-800 text-amber-800 hover:bg-amber-800 hover:text-white px-8 py-3 text-lg font-light"
               >
                 Let's Connect
               </Button>
@@ -179,17 +208,23 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-center mb-16 text-slate-800">WHO I AM</h2>
+            <h2 className="text-4xl font-light text-center mb-16 text-stone-800">WHO I AM</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                <p className="text-lg text-stone-600 mb-6 leading-relaxed font-light">
                   Hey! I'm Perm. Welcome to my corner of the internet.
                 </p>
-                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  I'm a sales pro agent builder dedicated to creating intelligent automation solutions that transform how businesses approach sales and data management. Currently, I'm building cutting-edge sales automation systems using n8n and advanced data scraping techniques with Octoparse.
+                <p className="text-lg text-stone-600 mb-6 leading-relaxed font-light">
+                  I'm the Founder & CEO of Collaba ML, an AI/ML marketplace connecting creators and brands. 
+                  I scaled the platform from concept to $15M in investor interest with 300+ creators and 40+ brands in just 3 months.
                 </p>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  I bring military-grade discipline and White House standards to everything I build, ensuring exceptional quality and attention to detail. My approach combines strategic thinking with hands-on technical execution.
+                <p className="text-lg text-stone-600 mb-6 leading-relaxed font-light">
+                  Previously, I spent nearly a decade at Google and YouTube, leading strategy and operations for Trust & Safety, 
+                  working with teams like Google DeepMind to enhance ML models for risk detection and content moderation.
+                </p>
+                <p className="text-lg text-stone-600 mb-8 leading-relaxed font-light">
+                  With a background in Physics & Astronomy from University of Louisville and experience at Microsoft, 
+                  I bring deep technical expertise to building scalable AI/ML solutions.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {skills.map((skill, index) => (
@@ -199,23 +234,28 @@ function App() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center space-x-3 p-3 rounded-lg bg-slate-50 hover:bg-blue-50 transition-colors"
+                      className="flex items-center space-x-3 p-3 rounded-lg bg-stone-50 hover:bg-amber-50 transition-colors"
                     >
-                      <skill.icon className="w-5 h-5 text-blue-600" />
-                      <span className="font-medium text-slate-700">{skill.name}</span>
+                      <skill.icon className="w-5 h-5 text-amber-700" />
+                      <span className="font-light text-stone-700">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
               <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white">PM</span>
-                    </div>
-                    <p className="text-slate-600 font-medium">Professional Photo Coming Soon</p>
-                  </div>
+            <div className="w-full h-96 bg-gradient-to-br from-amber-50 to-stone-100 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+                  <img 
+                    src="/images/perm-profile.png" 
+                    alt="Perm Moore"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <p className="text-stone-600 font-light mb-2">San Francisco & Los Angeles</p>
+                <p className="text-stone-500 text-sm font-light">Physics & Astronomy, University of Louisville</p>
+              </div>
+            </div>
               </div>
             </div>
           </motion.div>
@@ -223,7 +263,7 @@ function App() {
       </section>
 
       {/* Work Section */}
-      <section id="work" className="py-20 bg-slate-50">
+      <section id="work" className="py-20 bg-stone-50">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -231,7 +271,7 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-center mb-16 text-slate-800">THE WORKS</h2>
+            <h2 className="text-4xl font-light text-center mb-16 text-stone-800">THE WORKS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <motion.div
@@ -241,26 +281,66 @@ function App() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-sm bg-white">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <Badge variant={project.status === 'Live' ? 'default' : project.status === 'Completed' ? 'secondary' : 'outline'}>
+                        <Badge variant={project.status === 'Live' ? 'default' : project.status === 'Completed' ? 'secondary' : 'outline'} 
+                               className={`font-light ${project.status === 'Live' ? 'bg-amber-700 text-white' : project.status === 'Completed' ? 'bg-stone-200 text-stone-700' : 'border-stone-300 text-stone-600'}`}>
                           {project.status}
                         </Badge>
-                        <ExternalLink className="w-4 h-4 text-slate-400" />
+                        <ExternalLink className="w-4 h-4 text-stone-400" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-3 text-slate-800">{project.title}</h3>
-                      <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
+                      {project.logo ? (
+                        <div className="flex flex-col items-start gap-2 mb-4">
+                          <img 
+                            src={project.logo} 
+                            alt={`${project.title} logo`}
+                            className="w-full max-w-sm object-contain"
+                          />
+                        </div>
+                      ) : project.image ? (
+                        <div className="flex flex-col items-start gap-2 mb-4">
+                          <img 
+                            src={project.image} 
+                            alt={`${project.title} preview`}
+                            className="w-full h-48 object-cover rounded-lg"
+                          />
+                          <h3 className="text-xl font-light text-stone-800">{project.title}</h3>
+                        </div>
+                      ) : (
+                        <h3 className="text-xl font-light mb-3 text-stone-800">{project.title}</h3>
+                      )}
+                      <p className="text-stone-600 mb-4 leading-relaxed font-light">{project.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.tech.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
+                          <Badge key={tech} variant="outline" className="text-xs font-light border-stone-300 text-stone-600">
                             {tech}
                           </Badge>
                         ))}
                       </div>
-                      <Button variant="ghost" className="w-full justify-between text-blue-600 hover:text-blue-700">
-                        View Project <ArrowRight className="w-4 h-4" />
-                      </Button>
+                      {project.link && (
+                        <div className="flex gap-2">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className="flex-1 text-amber-700 hover:text-amber-800 font-light"
+                            onClick={() => window.open(project.link, '_blank')}
+                          >
+                            Visit Website <ExternalLink className="w-3 h-3 ml-1" />
+                          </Button>
+                          {project.linkedinLink && (
+                            <Button 
+                              variant="ghost" 
+                              size="sm"
+                              className="flex-1 text-amber-700 hover:text-amber-800 font-light"
+                              onClick={() => window.open(project.linkedinLink, '_blank')}
+                            >
+                              <Linkedin className="w-3 h-3 mr-1" />
+                              LinkedIn
+                            </Button>
+                          )}
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -279,7 +359,7 @@ function App() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-center mb-16 text-slate-800">MY WRITING</h2>
+            <h2 className="text-4xl font-light text-center mb-16 text-stone-800">MY WRITING</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {mediumArticles.map((article, index) => (
                 <motion.div
@@ -289,15 +369,26 @@ function App() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-sm bg-white overflow-hidden">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                     <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4 text-sm text-slate-500">
+                      <div className="flex items-center justify-between mb-4 text-sm text-stone-500 font-light">
                         <span>{article.date}</span>
                         <span>{article.readTime}</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-3 text-slate-800 leading-tight">{article.title}</h3>
-                      <p className="text-slate-600 mb-4 leading-relaxed">{article.excerpt}</p>
-                      <Button variant="ghost" className="w-full justify-between text-blue-600 hover:text-blue-700">
+                      <h3 className="text-xl font-light mb-3 text-stone-800 leading-tight">{article.title}</h3>
+                      <p className="text-stone-600 mb-4 leading-relaxed font-light">{article.excerpt}</p>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-between text-amber-700 hover:text-amber-800 font-light"
+                        onClick={() => window.open(article.link, '_blank')}
+                      >
                         Read on Medium <ExternalLink className="w-4 h-4" />
                       </Button>
                     </CardContent>
@@ -306,63 +397,164 @@ function App() {
               ))}
             </div>
             <div className="text-center mt-12">
-              <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+              <Button 
+                variant="outline" 
+                className="border-2 border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-white font-light"
+                onClick={() => window.open('https://medium.com/@permmoore186', '_blank')}
+              >
                 View All Articles on Medium
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-8">LET'S BUILD SOMETHING GREAT</h2>
-            <p className="text-xl mb-12 opacity-90 leading-relaxed">
-              Ready to transform your sales processes with intelligent automation? 
-              Let's connect and explore how we can work together.
+      <section id="contact" className="py-20 bg-gradient-to-br from-amber-50 to-stone-100">
+        <motion.div 
+          className="container mx-auto px-6"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-8 text-stone-800">LET'S BUILD SOMETHING GREAT</h2>
+            <p className="text-xl text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+              Ready to explore AI/ML opportunities or discuss the future of the creator economy? Let's connect and see how we can collaborate.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                variant="secondary" 
-                className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-3 text-lg"
-              >
-                <Mail className="mr-2 w-5 h-5" />
-                Send Email
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg"
-              >
-                <Linkedin className="mr-2 w-5 h-5" />
-                Connect on LinkedIn
-              </Button>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Form */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="text-2xl font-light text-stone-800 mb-6">Send a Message</h3>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-stone-600 font-light mb-2">Name</label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-stone-600 font-light mb-2">Email</label>
+                  <input 
+                    type="email" 
+                    className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-stone-600 font-light mb-2">Subject</label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="What's this about?"
+                  />
+                </div>
+                <div>
+                  <label className="block text-stone-600 font-light mb-2">Message</label>
+                  <textarea 
+                    rows="5"
+                    className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:border-amber-700 transition-colors resize-none"
+                    placeholder="Tell me about your project or idea..."
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full bg-amber-800 text-white px-8 py-3 rounded-lg hover:bg-amber-900 transition-colors text-lg font-light"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
-            <div className="flex justify-center space-x-8">
-              <a href="https://github.com/permmoore" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                <Github className="w-6 h-6" />
-              </a>
-              <a href="https://linkedin.com/in/permmoore" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href="https://medium.com/@permmoore" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                <ExternalLink className="w-6 h-6" />
-              </a>
+            
+            {/* Contact Options */}
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-light text-stone-800 mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                  <a 
+                    href="mailto:perm@collabaml.ai"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-stone-50 transition-colors group"
+                  >
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                      <Mail className="w-6 h-6 text-amber-800" />
+                    </div>
+                    <div>
+                      <div className="font-light text-stone-800">Email</div>
+                      <div className="text-stone-600 text-sm">perm@collabaml.ai</div>
+                    </div>
+                  </a>
+                  
+                  <a 
+                    href="https://calendly.com/perm-collabaml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-stone-50 transition-colors group"
+                  >
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                      <svg className="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-light text-stone-800">Schedule a Call</div>
+                      <div className="text-stone-600 text-sm">Book time on my calendar</div>
+                    </div>
+                  </a>
+                  
+                  <a 
+                    href="https://www.linkedin.com/in/perm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-stone-50 transition-colors group"
+                  >
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                      <Linkedin className="w-6 h-6 text-amber-800" />
+                    </div>
+                    <div>
+                      <div className="font-light text-stone-800">LinkedIn</div>
+                      <div className="text-stone-600 text-sm">Professional networking</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-xl font-light text-stone-800 mb-4">Follow My Work</h3>
+                <div className="flex gap-4">
+                  <a href="https://medium.com/@permmoore186" target="_blank" rel="noopener noreferrer"
+                     className="flex-1 bg-stone-100 hover:bg-stone-200 p-4 rounded-lg transition-colors text-center">
+                    <svg className="w-6 h-6 mx-auto mb-2 text-stone-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                    </svg>
+                    <div className="text-sm font-light text-stone-600">Medium</div>
+                  </a>
+                  <a href="https://x.com/pm17208" target="_blank" rel="noopener noreferrer"
+                     className="flex-1 bg-stone-100 hover:bg-stone-200 p-4 rounded-lg transition-colors text-center">
+                    <svg className="w-6 h-6 mx-auto mb-2 text-stone-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <div className="text-sm font-light text-stone-600">Twitter</div>
+                  </a>
+                  <a href="https://github.com/perm-moore" target="_blank" rel="noopener noreferrer"
+                     className="flex-1 bg-stone-100 hover:bg-stone-200 p-4 rounded-lg transition-colors text-center">
+                    <Github className="w-6 h-6 mx-auto mb-2 text-stone-600" />
+                    <div className="text-sm font-light text-stone-600">GitHub</div>
+                  </a>
+                </div>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-slate-900 text-slate-400 text-center">
+      <footer className="py-8 bg-stone-800 text-stone-300 text-center">
         <div className="max-w-6xl mx-auto px-6">
-          <p>&copy; 2025 Perm Moore. Built with precision and passion.</p>
+          <p className="font-light">&copy; 2025 Perm Moore. Built with precision and passion.</p>
         </div>
       </footer>
     </div>
