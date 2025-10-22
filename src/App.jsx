@@ -40,9 +40,9 @@ function App() {
       description: "AI/ML marketplace connecting creators and brands. Scaled from concept to $15M in investor interest with 300+ creators and 40+ brands in 3 months.",
       tech: ["GCP Vertex AI", "Python", "ML Pipelines", "React"],
       status: "Live",
-      link: "https://collabaml.ai",
+      link: "https://collabml.ai",
       linkedinLink: "https://www.linkedin.com/company/collaba-ml/?viewAsMember=true",
-      logo: "/images/collaba-ml-logo.png"
+      image: '/images/collab-ml-logo-new.png'
     },
     {
       title: "Financial Forecasting System",
